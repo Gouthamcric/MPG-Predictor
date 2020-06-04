@@ -1,0 +1,73 @@
+<html>
+{% include 'header2.html' %}
+<body class="w3-light-grey">
+
+    {% include 'nav.html' %}
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:300px;margin-top:43px;">
+        <div class="pt-2 text-center">
+            <h1 class="text-center">Predict</h1>
+            <br>
+            <br>
+            <div class="px-2">
+                <section class="hero" id="hero">
+        
+                    <div class="container" style="margin-top: 10px" id="pager">
+        <div class="row justify-content-md-center">
+            <div class="col-md-12">
+                <div class="card">
+                    <div style="background-color: black;" class="card-header">
+                        <center style="color:white">MPG Predictor</center>
+                    </div>
+                    <div class="card-body text-left">
+                        <form class="form-signin" action="/predict" method="POST" role="form">
+                            <label for="">Cylinders</label>
+                            <input type="text" class="form-control" placeholder="Enter Cylinder" name="cylinders">
+                            <br>
+                            
+                            <label for="">Displacement</label>
+                            <input type="text" class="form-control" placeholder="Enter Displacement" name="displacement">
+                            <br>
+                            
+                            <label for="">Horsepower</label>
+                            <input type="text" class="form-control" placeholder="Enter Horsepower" name="horsepower">
+                            <br>
+                            
+                            <label for="">Weight</label>
+                            <input type="text" class="form-control" placeholder="Enter Weight" name="weight">
+                            <br>
+                            
+                            <label for="">Accelaration</label>
+                            <input type="text" class="form-control" placeholder="Enter accelaration" name="accelaration">
+                            <br>
+                            
+                            <label for="">Model year</label>
+                            <input type="text" class="form-control" placeholder="Enter model year" name="model_year">
+                            <br>
+                            
+                            <label for="">Origin</label>
+                            <input type="text" class="form-control" placeholder="Enter origin" name="origin">
+                            <br>
+                        
+                        <button type="submit"  class="btn btn-dark btn-lg btn-block  ml-auto" id="submit">predict!</button>
+                        </form>
+                        {% if(predicted_value) %}
+                        <h3 style="color:red">Predicted MPG value is {{predicted_value}}</h3>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+            </div>
+
+        </div>
+
+        <!-- End page content -->
+    </div>
+
+{% include 'script.html' %}
+</body>
+
+</html>

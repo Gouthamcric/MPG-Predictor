@@ -1,0 +1,123 @@
+<html>
+{% include 'header2.html' %}
+<body class="w3-light-grey">
+    {% include 'nav.html' %}
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:300px;margin-top:43px;">
+        <div class="pt-2 text-center">
+            <h1 class="text-center">Database</h1>
+            <br>
+            <br>
+            <div class="text-left mb-2 px-2">
+                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModalCenter">
+                    Contribute
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade text-left" id="exampleModalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <form action={{url_for("index")}} method="POST">
+                        <div class="modal-content">
+                            <div class="modal-header bg-primary text-light">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Fill the form below to add your observed value
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true" class="text-light">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <label for="">MPG</label>
+                                <input type="text" class="form-control" placeholder="Enter MPG" name="mpg">
+                                <br>
+                                <label for="">Cylinders</label>
+                                <input type="text" class="form-control" placeholder="Enter Cylinder" name="cylinders">
+                                <br>
+                                
+                                <label for="">Displacement</label>
+                                <input type="text" class="form-control" placeholder="Enter Displacement" name="displacement">
+                                <br>
+                                
+                                <label for="">Horsepower</label>
+                                <input type="text" class="form-control" placeholder="Enter Horsepower" name="horsepower">
+                                <br>
+                                
+                                <label for="">Weight</label>
+                                <input type="text" class="form-control" placeholder="Enter Weight" name="weight">
+                                <br>
+                                
+                                <label for="">Accelaration</label>
+                                <input type="text" class="form-control" placeholder="Enter accelaration" name="accelaration">
+                                <br>
+                                
+                                <label for="">Model year</label>
+                                <input type="text" class="form-control" placeholder="Enter model year" name="model_year">
+                                <br>
+                                
+                                <label for="">Origin</label>
+                                <input type="text" class="form-control" placeholder="Enter origin" name="origin">
+                                <br>
+                                
+                                <label for="">Date</label>
+                                <input type="date" class="form-control">
+                                <br>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            <div class="px-2">
+                <form class="form-inline" action="">
+                    <input id="myInput" class="form-control" type="text" placeholder="Search a value">
+                </form>
+            </div>
+            <div class="px-2 table-responsive">
+                <table id="myTable" class="table table-striped text-center" style="display: table;">
+                    <thead>
+                        <tr>
+                           
+                            <th scope="col">MPG</th>
+                            <th scope="col">Cylinders</th>
+                            <th scope="col">Displacement</th>
+                            <th scope="col">Horsepower</th>
+                            <th scope="col">Weight</th>
+                            <th scope="col">Accelaration</th>
+                            <th scope="col">Model year</th>
+                            <th scope="col">Origin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if(results) %}
+                        {% for result in results %}
+                        <tr>
+                 
+                            <td>{% print(result['mpg']) %}</td>
+                            <td>{% print(result['cylinders']) %}</td>
+                            <td>{% print(result['displacement']) %}</td>
+                            <td>{% print(result['horsepower']) %}</td>
+                            <td>{% print(result['weight']) %}</td>
+                            <td>{% print(result['accelaration']) %}</td>
+                            <td>{% print(result['model year']) %}</td>
+                            <td>{% print(result['origin']) %}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <!-- End page content -->
+    </div>
+
+{% include 'script.html' %}
+</body>
+
+</html>
